@@ -1,0 +1,557 @@
+/* =======================================================
+   TRABAJO FIPO - APPLE VISION PRO
+   Estilos de la página: HTML + CSS, sin JavaScript
+   Basado en las prácticas de selectores, cajas, Flexbox
+   y posicionamiento de Fundamentos de IPO.
+   ======================================================= */
+
+/* 1. Colores y estilos generales */
+:root {
+    --azul: #152342;
+    --azul-claro: #28559b;
+    --celeste: #dceaf5;
+    --fondo: #f4f6f9;
+    --blanco: #ffffff;
+    --texto: #202b3d;
+    --gris: #526073;
+    --borde: #dce2ea;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+.contenedor {
+    max-width: 1100px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--azul);
+    margin: 0 0 1.3rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: var(--azul-claro);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid #f2bb37;
+    outline-offset: 4px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Cabecera y navegación */
+header {
+    color: var(--blanco);
+    background-color: var(--azul);
+    padding: 1.15rem 0;
+}
+
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+}
+
+.asignatura {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: bold;
+    letter-spacing: 0.07rem;
+}
+
+.identificador {
+    margin: 0;
+    color: #d0daea;
+    font-size: 0.85rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
+    gap: 0.25rem 1.8rem;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    display: inline-block;
+    padding: 0.3rem 0;
+    color: var(--azul);
+    font-weight: bold;
+    font-size: 0.87rem;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: var(--azul-claro);
+    text-decoration: underline;
+}
+
+.saltar {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background-color: white;
+    padding: 0.7rem;
+    z-index: 20;
+}
+
+.saltar:focus {
+    left: 0;
+}
+
+/* 3. Portada */
+.portada {
+    background-color: var(--azul);
+    color: var(--blanco);
+    padding: 4.2rem 0 1.5rem;
+}
+
+.portada-contenido {
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+    flex-wrap: wrap;
+}
+
+.portada-texto,
+.portada-foto {
+    flex: 1 1 20rem;
+}
+
+.etiqueta-clara {
+    color: #a9d6f7;
+    font-size: 0.76rem;
+    font-weight: bold;
+    letter-spacing: 0.08rem;
+}
+
+.portada h1 {
+    font-size: 3.7rem;
+    margin: 0 0 0.9rem;
+    letter-spacing: -0.09rem;
+}
+
+.portada .subtitulo {
+    font-size: 1.35rem;
+    font-weight: bold;
+    color: #e4f2ff;
+}
+
+.portada-texto > p:not(.etiqueta-clara) {
+    max-width: 35rem;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #b6e1ff;
+    color: #102344;
+    border: 2px solid #b6e1ff;
+    border-radius: 9px;
+    padding: 0.7rem 1.2rem;
+    margin-top: 0.6rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: #eaf5ff;
+}
+
+.portada-foto {
+    margin: 0;
+    background-color: #dce3ee;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.portada-foto img {
+    width: 100%;
+    height: 315px;
+    object-fit: cover;
+}
+
+figcaption {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.77rem;
+    color: var(--gris);
+    background-color: #fff;
+}
+
+.resumen-datos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+    border-top: 1px solid #45516b;
+    margin-top: 3rem;
+    padding-top: 1.2rem;
+}
+
+.resumen-datos p {
+    margin: 0;
+    flex: 1 1 10rem;
+}
+
+.resumen-datos strong {
+    display: block;
+    font-size: 1.25rem;
+}
+
+.resumen-datos span {
+    color: #d4e0ee;
+    font-size: 0.86rem;
+}
+
+/* 4. Contenido y columnas */
+.seccion {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.numero {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    color: var(--azul-claro);
+    margin-bottom: 0.7rem;
+}
+
+.introduccion {
+    max-width: 790px;
+    font-size: 1.12rem;
+    color: var(--gris);
+    margin-bottom: 1.8rem;
+}
+
+.columnas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.2rem;
+    align-items: flex-start;
+}
+
+.columnas > * {
+    flex: 1 1 19rem;
+}
+
+.texto-principal p {
+    margin-bottom: 1.25rem;
+}
+
+.ficha {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-left: 5px solid var(--azul-claro);
+    padding: 1.2rem 1.5rem;
+    border-radius: 10px;
+}
+
+.ficha h3 {
+    margin-top: 0;
+}
+
+.ficha ul {
+    padding-left: 1.2rem;
+    margin-bottom: 0;
+}
+
+.ficha li {
+    margin-bottom: 0.7rem;
+}
+
+/* 5. Interacción: tarjetas con Flexbox */
+.fondo-azul {
+    background-color: #e5edf8;
+}
+
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.1rem;
+}
+
+.tarjeta {
+    flex: 1 1 15rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 1.3rem 1.5rem;
+    box-shadow: 3px 4px 0 #ccd8e6;
+}
+
+.simbolo {
+    display: inline-block;
+    background-color: #d6e9ff;
+    color: var(--azul-claro);
+    font-weight: bold;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+}
+
+.tarjeta h3 {
+    color: var(--azul);
+    margin-bottom: 0.55rem;
+}
+
+.tarjeta p:last-child {
+    margin-bottom: 0;
+}
+
+.idea {
+    border-left: 4px solid var(--azul-claro);
+    padding: 1.1rem 1.4rem;
+    background-color: var(--blanco);
+    margin-top: 2rem;
+}
+
+.foto-horizontal {
+    margin: 2.2rem 0 0;
+    background-color: var(--blanco);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.foto-horizontal img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+/* 6. Evolución */
+.evolucion {
+    padding-left: 1.4rem;
+}
+
+.evolucion li {
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+}
+
+.comparacion {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.comparacion > div {
+    flex: 1 1 17rem;
+    background-color: #e4eaf2;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.comparacion > div:last-child {
+    background-color: #d3e6fa;
+}
+
+.comparacion-titulo {
+    color: var(--azul-claro);
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.09rem;
+}
+
+.comparacion h3 {
+    margin-bottom: 0.4rem;
+}
+
+.nota {
+    color: var(--gris);
+    font-style: italic;
+}
+
+/* 7. Beneficios y limitaciones */
+.fondo-suave {
+    background-color: #e9eef4;
+}
+
+.caja {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+}
+
+.caja h3 {
+    margin-top: 0;
+    color: var(--azul);
+}
+
+.caja ul {
+    padding-left: 1.2rem;
+}
+
+.caja li {
+    margin-bottom: 0.9rem;
+}
+
+.opinion {
+    background-color: #d9e7f6;
+    border-left: 5px solid var(--azul-claro);
+    margin-top: 1.6rem;
+    padding: 1.2rem 1.5rem;
+    border-radius: 6px;
+}
+
+.opinion h3 {
+    margin: 0 0 0.5rem;
+}
+
+.opinion p {
+    margin-bottom: 0;
+}
+
+/* 8. Fotografía de perfil y fuentes */
+.imagen-final figure {
+    margin: 0;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.imagen-final img {
+    width: 100%;
+    max-height: 410px;
+    object-fit: cover;
+}
+
+.imagen-final .columnas {
+    align-items: center;
+}
+
+.fuentes {
+    background-color: var(--blanco);
+}
+
+.fuentes ul {
+    padding-left: 1.5rem;
+}
+
+.fuentes li {
+    margin-bottom: 0.8rem;
+}
+
+/* 9. Pie de página */
+footer {
+    color: white;
+    background-color: var(--azul);
+    padding: 2rem 0 1.3rem;
+}
+
+.pie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pie p {
+    margin: 0;
+}
+
+.pie span {
+    display: block;
+    color: #ccd9e9;
+    font-size: 0.85rem;
+}
+
+.pie a {
+    color: #d9edff;
+}
+
+.aclaracion {
+    color: #d0daea;
+    font-size: 0.76rem;
+    margin-top: 1.2rem;
+}
+
+/* 10. Adaptación a pantallas pequeñas */
+@media (max-width: 750px) {
+    .portada {
+        padding-top: 3rem;
+    }
+
+    .portada h1 {
+        font-size: 2.8rem;
+    }
+
+    .seccion {
+        padding-top: 3.3rem;
+        padding-bottom: 3.3rem;
+    }
+
+    .menu {
+        gap: 0.2rem 0.9rem;
+    }
+
+    nav {
+        position: static;
+    }
+
+    html {
+        scroll-padding-top: 0;
+    }
+
+    .portada-foto img,
+    .foto-horizontal img {
+        height: auto;
+    }
+}
